@@ -22,5 +22,6 @@ urlpatterns = [
     path('', internetshop.index),
     path('contact/', internetshop.contact),
     path('products/', internetshop.products),
+
 ]
 
