@@ -2,15 +2,23 @@
 <ul class="menu">
     {% for link in menu_links %}
     <li>
-        <a href="{% url link.url %}"
+        <a href="{{ link.url }}"
            {% if request.resolver_match.url_name == link.url %}
                 class="active"
-            {% endif %}
+           {% endif %}
         >
             {{ link.name }}
         </a>
     </li>
     {% endfor %}
+
+    {% if user.is_authenticated %}
+    <li>
+        <a href="{% url 'auth:edit' %}">
+            {{ user.first_name|default:'Пользователь' }}
+        </a>
+    </li>
+    {% endif %}
 </ul>
 <a href="#" class="search"></a>
 <a href="#" class="basket"></a>
