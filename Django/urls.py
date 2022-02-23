@@ -26,6 +26,7 @@ urlpatterns = [
     path('contact/', internetshop.contact, name='contact'),
     path('products/', include('internetshop.urls', namespace='products')),
     path('auth/', include('authapp.urls', namespace='auth')),
+    path('basket/', include('basketapp.urls', namespace='basket')),
 ]
 
 if settings.DEBUG:

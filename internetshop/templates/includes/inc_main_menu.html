@@ -2,8 +2,8 @@
 <ul class="menu">
     {% for link in menu_links %}
     <li>
-        <a href="{{ link.url }}"
-           {% if request.resolver_match.url_name == link.url %}
+        <a href="{% url link.url %}"
+           {% if request.resolver_match.view_name in link.active %}
                 class="active"
            {% endif %}
         >
@@ -17,7 +17,7 @@
         <a href="{% url 'auth:edit' %}">
             {{ user.first_name|default:'Пользователь' }}
         </a>
-    </li>
+    </li>х=
     {% endif %}
 </ul>
 <a href="#" class="search"></a>
