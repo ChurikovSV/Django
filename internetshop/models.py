@@ -6,8 +6,8 @@ class ProductCategory(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(verbose_name='описание', blank=True)
 
-    def _str_ (self):
-        return self.name
+    def __str__(self):
+        return f"{self.name}"
 
 class Product(models.Model):
     name = models.CharField(verbose_name='имя', max_length=128)
@@ -18,6 +18,6 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE)
 
-    def _str_ (self):
-        return self.name
+    def __str__(self):
+        return f"{self.name} ({self.category.name})"
 
