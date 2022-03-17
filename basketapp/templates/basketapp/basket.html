@@ -1,5 +1,17 @@
-{% for item in basket %}
-    {{ item }}
-{% endfor %}
+{% extends 'basketapp/base.html' %}
+{% load static %}
 
-В Корзине {{ basket|length }} элементов.
+{% block js %}
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/basket_script.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="basket_list">
+    {% include 'basketapp/includes/inc_basket_list.html' %}
+</div>
+
+<button class="btn btn-round">
+    <a href="{% url 'main' %}">на главную</a>
+</button>
+{% endblock %}

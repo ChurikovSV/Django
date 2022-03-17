@@ -1,1 +1,2 @@
 https://github.com/ChurikovSV/Django/pull/4  - TASK04
+https://github.com/ChurikovSV/Django/pull/5 - TASK05
