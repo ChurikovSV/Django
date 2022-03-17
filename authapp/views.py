@@ -15,6 +15,8 @@ def login(request):
             user = auth.authenticate(request, username=username, password=password)
             if user and user.is_active:
                 auth.login(request, user)
+                if 'next' in request.GET.keys():
+                    return HttpResponsePermanentRedirect(request.GET['next'])
                 return HttpResponsePermanentRedirect(reverse('main'))
     else:
         login_form = ShopUserLoginForm()
